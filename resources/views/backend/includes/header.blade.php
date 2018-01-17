@@ -1,6 +1,6 @@
 <header class="top-header">
   <a href="/" class="top-header-logo" target="_blank">
-    <span class="text-primary">Club</span> A
+    <span class="text-primary">Club</span> S
   </a>
   <nav class="navbar navbar-default">
     <div class="container-fluid">

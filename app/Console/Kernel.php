@@ -15,8 +15,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\AttendanceGirl::class,
-        Commands\AttendanceGirlHistory::class,
+        \App\Console\Commands\AttendGirl::class,
+        \App\Console\Commands\AttendGirlHistory::class,
     ];
 
     /**
@@ -27,8 +27,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('attendance:girl')->daily();
-        $schedule->command('attendance:girl_history')->daily();
+        $schedule->command('attend:girl')->dailyAt('05:00');
+        $schedule->command('attend:girl_history')->dailyAt('05:00');
     }
 
     /**
@@ -38,7 +38,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        // $this->load(__DIR__.'/Commands');
 
         require base_path('routes/console.php');
     }

@@ -24,7 +24,7 @@ class Girl extends Model
    */
   protected $fillable = [
       'girl_name', 'age', 'birthday','pob','hobby','cigarette_flag','characteristic_type',
-      'chorm_point','profile_girl','work_flag','deleted_flag','created_at','updated_at'
+      'chorm_point','profile_girl','all_flag','deleted_flag','created_at','updated_at'
   ];
   /**--------------------------------------
   * Validator information girl
@@ -86,8 +86,8 @@ class Girl extends Model
     $sql = DB::table('girl AS G')
           ->Join('girl_history AS GH', 'G.girl_id', '=', 'GH.girl_id')
           ->select(DB::raw('G.girl_name'),DB::raw('COUNT(*) as total_work'))
-          ->where('GH.work_flag', '=', 1)
-          ->Where('G.work_flag', '=', 1)
+          ->where('GH.all_flag', '=', 1)
+          ->Where('G.all_flag', '=', 1)
           ->orderBy('total_work', 'DESC')
           ->groupBy('G.girl_name')->limit(10)->get();
      return $sql;
@@ -100,9 +100,9 @@ class Girl extends Model
   public function sqlTotalWorkToday()
   {
    $sql = DB::table('girl AS G')
-        ->select('G.girl_name', 'G.work_flag','profile_girl')
+        ->select('G.girl_name', 'G.all_flag','profile_girl')
         ->Where(DB::raw("DATE_FORMAT(G.updated_at,'%Y-%m-%d')"), '=', date("Y-m-d"))
-        ->where('G.work_flag', '=', 1)
+        ->where('G.all_flag', '=', 1)
         ->get();
     return $sql;
   }
@@ -114,9 +114,9 @@ class Girl extends Model
   public function sqlTotalnoWorkToday()
   {
    $sql = DB::table('girl AS G')
-        ->select('G.girl_name', 'G.work_flag')
+        ->select('G.girl_name', 'G.all_flag')
         ->Where(DB::raw("DATE_FORMAT(G.updated_at,'%Y-%m-%d')"), '=', date("Y-m-d"))
-        ->where('G.work_flag', '=', 0)
+        ->where('G.all_flag', '=', 0)
         ->get();
     return $sql;
   }

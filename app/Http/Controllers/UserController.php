@@ -18,6 +18,9 @@ class UserController extends Controller
   */
   public function showLogin()
   {
+    if (Auth::check()) {
+      return Redirect::route('backend.dashboard');
+    }
     return view('backend.account.login');
   }
 

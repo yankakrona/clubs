@@ -7,21 +7,21 @@ use DB;
 use App\Girl;
 use Carbon\Carbon;
 
-class AttendanceGirl extends Command
+class AttendGirl extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'attendance:girl';
+    protected $signature = 'attend:girl';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Update attendance girls to database';
+    protected $description = 'Update attend girls to database';
 
     /**
      * Create a new command instance.

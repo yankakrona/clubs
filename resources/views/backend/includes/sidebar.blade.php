@@ -1,7 +1,7 @@
 <aside class="left-sidebar">
     <section class="sidebar-user-panel">
         <div id="user-panel-slide-toggleable">
-            <span class="user-panel-logged-in-text"><span class="fa fa-circle-o text-success user-panel-status-icon"></span>{{ Auth::user()->name }}</span>
+            <span class="user-panel-logged-in-text"><span class="fa fa-circle text-success user-panel-status-icon"></span>{{ Auth::user()->name }}</span>
         </div>
     </section>
     <ul class="sidebar-nav">

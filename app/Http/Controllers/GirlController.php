@@ -35,7 +35,7 @@ class GirlController extends Controller
     $search = $request->get('search');
     $girls   = Girl::where('girl_name', 'LIKE', '%'.$search.'%')
             ->where('deleted_flag','=','0')
-            ->orderBy('work_flag','DESC')->orderBy('created_at','DESC')->paginate(15);
+            ->orderBy('all_flag','DESC')->orderBy('created_at','DESC')->paginate(15);
     return view('backend.girl.index', compact('girls', 'search'));
 
   }

@@ -21,7 +21,7 @@ class GirlHistory extends Model
    * @var array
    */
   protected $fillable = [
-      'girl_id','work_flag','work_date'
+      'girl_id','all_flag','work_date'
   ];
   /**
   * Sql count rank work's girl
@@ -31,7 +31,7 @@ class GirlHistory extends Model
   public function SQL_SELECT_GIRL()
   {
    $sql = DB::table('girl AS G')
-        ->select('G.girl_id', 'G.work_flag','updated_at')
+        ->select('G.girl_id', 'updated_at')
         ->Where(DB::raw("DATE_FORMAT(G.updated_at,'%Y-%m-%d')"), '=', date("Y-m-d"))
         ->where('G.deleted_flag', '=', 0)
         ->get()->toArray();

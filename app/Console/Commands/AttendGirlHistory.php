@@ -7,31 +7,31 @@ use DB;
 use App\Girl;
 use App\GirlHistory;
 use Carbon\Carbon;
-class AttendanceGirlHistory extends Command
+class AttendGirlHistory extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'attendance:girl_history';
+    protected $signature = 'attend:girl_history';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Insert attendance girls to database of table girl history';
+    protected $description = 'Insert attend girls to database of table girl history';
 
     /**
      * Create a new command instance.
      *
      * @return void
      */
-    public function __construct(GirlHistory $attendance)
+    public function __construct(GirlHistory $attend)
     {
         parent::__construct();
-        $this->_attendance = $attendance;
+        $this->_attend = $attend;
     }
 
     /**
@@ -41,12 +41,11 @@ class AttendanceGirlHistory extends Command
      */
     public function handle()
     {
-      $sqlBuilders = $this->_attendance->SQL_SELECT_GIRL();
+      $sqlBuilders = $this->_attend->SQL_SELECT_GIRL();
       $inserts = [];
       foreach($sqlBuilders as $builder) {
         $inserts[] = [
             'girl_id'   => $builder->girl_id,
-            'work_flag' => $builder->work_flag,
             'work_date' => $builder->updated_at,
       ];}
       DB::table('girl_history')->insert($inserts);
