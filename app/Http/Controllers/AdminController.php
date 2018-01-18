@@ -34,8 +34,8 @@ class AdminController extends Controller
     $sqlSearch = DB::table('girl AS G')
          ->Where('deleted_flag','=','0')
          ->Where(DB::raw("DATE_FORMAT(G.updated_at,'%Y-%m-%d')"), '=', date("Y-m-d"))
-         ->Where('G.all_flag', '=', $request->flag)
-         ->select('G.girl_name', 'G.all_flag','profile_girl')
+         ->Where('G.work_flag', '=', $request->flag)
+         ->select('G.girl_name', 'G.work_flag','profile_girl')
          ->get();
     return response()->json($sqlSearch);
   }

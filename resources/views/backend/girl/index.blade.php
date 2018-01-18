@@ -29,18 +29,18 @@
         <div class="panel-heading">
           <span><i class="fa fa-fw fa-female"></i>List's Girls</span>
           <span class="status-search">
-            <label class="icon-work-search" for="noall_flag">
-              <input id="noall_flag" type="radio" name="all_flag" value="0">
+            <label class="icon-work-search" for="nowork_flag">
+              <input id="nowork_flag" type="radio" name="work_flag" value="0">
               <span class="inline-status search-icon-nowork"></span><span class="name_status">Not Working</span>
             </label>
-            <label class="icon-work-search" for="all_flag">
-              <input id="all_flag" type="radio" name="all_flag" value="1">
+            <label class="icon-work-search" for="work_flag">
+              <input id="work_flag" type="radio" name="work_flag" value="1">
               <span class="inline-status search-icon-work"></span><span class="name_status">Working</span>
             </label>
           </span>
         </div>
         <div class="panel-body">
-          <div class="table-responisve">
+          <div class="table-responsive">
             <table id="list_girl" class="table table-striped">
               <thead>
                 <tr>
@@ -64,9 +64,9 @@
                   <td>{{ $girl->age }}</td>
                   <td>{{ $girl->pob }}</td>
                   <td class="text-center">
-                    @if($girl->all_flag == 0)
+                    @if($girl->work_flag == 0)
                       <div class="icon_flag nowork-active"></div>
-                    @elseif($girl->all_flag == 1)
+                    @elseif($girl->work_flag == 1)
                       <div class="icon_flag work-active"></div>
                     @endif
                   </td>

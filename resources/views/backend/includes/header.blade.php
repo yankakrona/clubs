@@ -13,17 +13,6 @@
             </button>
         </div>
         <ul class="nav navbar-nav navbar-right" data-dropdown-in="flipInX" data-dropdown-out="zoomOut">
-            <li class="item-feed dropdown">
-                <a href="#" class="item-feed-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-fw fa-bell"></span> <span class="badge badge-danger item-feed-badge">5</span></a>
-                <ul class="dropdown-menu dropdown-menu-notifications">
-                    <li>
-                      <a class="dropdown-menu-notifications-item" href="#">
-                          <span class="fa fa-female">I'm working.</span>
-                          <span class="dropdown-menu-notifications-item-ago">5:10 pm</span>
-                      </a>
-                    </li>
-                </ul>
-            </li>
             @if (Auth::check())
             <li>
               <a href="{{ route('backend.account.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">

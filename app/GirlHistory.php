@@ -21,7 +21,7 @@ class GirlHistory extends Model
    * @var array
    */
   protected $fillable = [
-      'girl_id','all_flag','work_date'
+      'girl_id','work_flag','work_date'
   ];
   /**
   * Sql count rank work's girl

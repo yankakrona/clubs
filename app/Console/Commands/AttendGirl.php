@@ -40,7 +40,7 @@ class AttendGirl extends Command
      */
     public function handle()
     {
-          DB::table('girl')->update(['updated_at' => date("Y-m-d H:i:s")]);
-          $this->info('All inactive girls are updated attendance successfully!');
+          DB::table('girl')->update(['work_flag'=> 0,'updated_at' => date("Y-m-d H:i:s")]);
+          $this->info('All girls are updated attendance successfully!');
     }
 }

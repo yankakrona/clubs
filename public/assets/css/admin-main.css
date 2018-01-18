@@ -1825,6 +1825,21 @@ img{max-width: 100%;}
   .btn-md-2 {
     max-width: 100%;
   }
+  ul.nav.navbar-nav.navbar-right {
+    float: right;
+  }
+  .left-sidebar .sidebar-user-panel {
+    padding: 5px 20px;
+    padding-top: 19px;
+  }
+  .left-sidebar .sidebar-nav .sidebar-nav-link a {
+    padding: 18px 18px;
+  }
+  .alert-msg{
+    width: 100%;
+    max-width: 450px !important;
+  }
+
 }
 /*
 * Resposive screen 480

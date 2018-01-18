@@ -18,7 +18,7 @@
                 @else
                   <img src="/assets/views/images/noimage.jpg" alt="image not found">
                 @endif
-                @if($girl->all_flag == 1)
+                @if($girl->work_flag == 1)
                 <div class="model-active">出勤中</div>
                 @endif
               </a>

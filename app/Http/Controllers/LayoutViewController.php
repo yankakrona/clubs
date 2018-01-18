@@ -17,7 +17,7 @@ class LayoutViewController extends Controller
   */
   public function sqlListGirl()
   {
-    return Girl::where('deleted_flag','=','0')->orderBy('all_flag','DESC')->orderBy('updated_at','DESC');
+    return Girl::where('deleted_flag','=','0')->orderBy('work_flag','DESC')->orderBy('updated_at','DESC');
   }
   /**
    * View home page

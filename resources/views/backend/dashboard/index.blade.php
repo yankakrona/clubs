@@ -26,8 +26,8 @@
             </div>
           </div><!--show-work-6-->
           <div class="show-work-6 box-color">
-            <label class="icon-work" for="all_flag">
-              <input id="all_flag" type="radio" name="all_flag" value="{{ old('all_flag',1) }}" onclick="searchWork(this)" data-flag="1">
+            <label class="icon-work" for="work_flag">
+              <input id="work_flag" type="radio" name="work_flag" value="{{ old('work_flag',1) }}" onclick="searchWork(this)" data-flag="1">
               <div class="check-status">
                 <div class="show-status status-work"></div>
                 <img src="/assets/img/girl.png">
@@ -45,8 +45,8 @@
             </div>
           </div><!--show-work-6-->
           <div class="show-work-6 box-color">
-            <label class="icon-work" for="noall_flag">
-              <input id="noall_flag" type="radio" name="all_flag" value="{{ old('all_flag',0) }}" onclick="searchWork(this)" data-flag="0">
+            <label class="icon-work" for="nowork_flag">
+              <input id="nowork_flag" type="radio" name="work_flag" value="{{ old('work_flag',0) }}" onclick="searchWork(this)" data-flag="0">
               <div class="check-status">
                 <div class="show-status status-nowork"></div>
                 <img src="/assets/img/girl.png">
@@ -61,7 +61,7 @@
     <div class="col-md-8 col-sm-8 col-xs-12">
       <div class="tb-rank-9">
         <div class="work_title">出勤中 and 一ヶ月以上出勤なし</div>
-        <div class="table-responisve">
+        <div class="table-responsive">
           <table class="table table-striped">
             <thead>
               <tr>
@@ -102,10 +102,10 @@
         'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
       }
     });
-    if($("input[name=all_flag]").val() ==1){
-      $("#all_flag").prop("checked", true);
+    if($("input[name=work_flag]").val() ==1){
+      $("#work_flag").prop("checked", true);
     }else{
-      $("#noall_flag").prop("checked", true);
+      $("#nowork_flag").prop("checked", true);
     }
     // class list work today
     ListWorkToday();
@@ -113,11 +113,11 @@
   });
   // List work today
   function ListWorkToday(){
-    var all_flag = 1;
+    var work_flag = 1;
     $.ajax({
        type:'POST',
        url:'{{route('backend.dashboard.search')}}',
-       data:{flag:all_flag},
+       data:{flag:work_flag},
        dataType: 'JSON',
        success:function(data){
          console.log(data);
@@ -128,12 +128,12 @@
   }
   // search work today
   function searchWork(obj){
-    $('input[name="all_flag"]').val($(obj).attr("data-flag"));
-    var all_flag = $("input[name=all_flag]").val();
+    $('input[name="work_flag"]').val($(obj).attr("data-flag"));
+    var work_flag = $("input[name=work_flag]").val();
     $.ajax({
        type:'POST',
        url:'{{route('backend.dashboard.search')}}',
-       data:{flag:all_flag},
+       data:{flag:work_flag},
        dataType: 'JSON',
        success:function(data){
          console.log(data);
@@ -156,7 +156,7 @@
       	rows = rows + '    <div class="model-title">';
         rows = rows + '       <div class="_2tile">'+value.girl_name+'</div>';
         rows = rows + '       <div class="_2box-status">';
-        if(value.all_flag ==1){
+        if(value.work_flag ==1){
         rows = rows + '         <span class="_2icon-status _2work"></span>';
         }else{
         rows = rows + '         <span class="_2icon-status _2noWork"></span>';
