@@ -97,8 +97,7 @@ Route::prefix('club')->group(function () {
   Route::get('kyujinjoho','LayoutViewController@pageKyujinjoho')->name('pages.kyujinjoho');
   Route::get('guruputenpo','LayoutViewController@pageGuruputenpo')->name('pages.guruputenpo');
 });
-// show lineAPIcallback
-Route::get('/lineAPIcallback','LineBotController@callBackLinBotAPI')->name('lineMessage.callback-api');
+
 /*-----------------------------------------------------------------------------
 * End Routes for fornt page
 ------------------------------------------------------------------------------*/
