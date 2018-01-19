@@ -26,7 +26,9 @@ class LineBotController extends Controller
     /**
     * @var LIN $bot
     */
+    $bot = app('line-bot');
     $signature = $_SERVER['HTTP_'.LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
+    dd($signature);
     if (!LINEBot\SignatureValidator::validateSignature($request->getContent(), env('LINE_CHANNEL_SECRET'), $signature)) {
         abort(400);
     }

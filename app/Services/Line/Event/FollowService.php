@@ -46,7 +46,7 @@ class FollowService
             $line_friend = new LineFriend();
             $input = [
                 'line_id' => $line_id,
-                'display_name' => $profile['displayName'],
+                'girl_name' => $profile['displayName'],
             ];
 
             $line_friend->fill($input)->save();

@@ -4,6 +4,7 @@ namespace App\Providers;
 use Cache;
 use Illuminate\Support\ServiceProvider;
 use Validator;
+use LINE\LINEBot;
 
 class AppServiceProvider extends ServiceProvider
 {
