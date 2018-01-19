@@ -2,7 +2,8 @@
 
 namespace App\Services\Line\Event;
 
-use App\Models\LineFriend;
+use App\Girl;
+use App\GirlHistory;
 use LINE\LINEBot;
 use LINE\LINEBot\Event\FollowEvent;
 use DB;

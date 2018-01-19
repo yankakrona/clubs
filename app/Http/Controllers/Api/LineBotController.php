@@ -9,6 +9,8 @@ use App\Services\Line\Event\RecieveLocationService;
 use App\Services\Line\Event\RecieveTextService;
 use App\Services\Line\Event\FollowService;
 use LINE\LINEBot;
+use App\Girl;
+use App\GirlHistory;
 
 class LineBotController extends Controller
 {
